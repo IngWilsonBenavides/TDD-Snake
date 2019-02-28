@@ -8,6 +8,7 @@ public class Snake {
     private Point2D position;
 
     public Snake(Point2D position) {
+        this.position = position;
     }
 
     public void setDirection(Direction direction) {
@@ -15,6 +16,7 @@ public class Snake {
     }
 
     public void update() {
+        position = position.add(direction.vector);
     }
 
     public Point2D getPosition() {

@@ -14,10 +14,16 @@ public class SnakeTest {
     public void testSnameMoves() {
         Snake snake = new Snake(new Point2D(0, 0));
 
-        snake.setDirection(Direction.RIGHT);
+        for (Direction direction : Direction.values()) {
+            Point2D oldPosition = snake.getPosition();
 
-        snake.update();
+            snake.setDirection(direction);
 
-        assertThat(snake.getPosition(), is(new Point2D(1, 0)));
+            snake.update();
+
+            assertThat(snake.getPosition(), is(oldPosition.add(direction.vector)));
+        }
+
+
     }
 }

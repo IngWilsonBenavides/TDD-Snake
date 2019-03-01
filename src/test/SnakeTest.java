@@ -1,8 +1,10 @@
 package test;
 
 import javafx.geometry.Point2D;
+import org.junit.Assert;
 import org.junit.Test;
 import snake.Direction;
+import snake.Food;
 import snake.Snake;
 
 import static org.hamcrest.CoreMatchers.is;
@@ -23,7 +25,14 @@ public class SnakeTest {
 
             assertThat(snake.getPosition(), is(oldPosition.add(direction.vector)));
         }
+    }
 
+    @Test
+    public void testSnakeFoodCollision() {
+        Snake snake = new Snake(new Point2D(10, 5));
 
+        Food food = new Food(new Point2D(10, 5));
+
+        Assert.assertTrue(snake.isCollidingWith(food));
     }
 }

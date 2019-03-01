@@ -11,7 +11,7 @@ public enum Direction {
 
     DOWN(new Point2D(0, 1));
 
-    public Point2D vector;
+    public final Point2D vector;
 
     Direction(Point2D vector) {
         this.vector = vector;
